@@ -13,7 +13,7 @@ function GaugeChart({ value, warningZone = 50, dangerZone = 80 }: Props) {
     <SimpleGauge
       value={value}
       barColor={barColor}
-      barWidth={30}
+      barWidth={20}
     />
   )
 }

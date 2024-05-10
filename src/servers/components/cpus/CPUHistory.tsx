@@ -14,7 +14,9 @@ function CPUHistory({ cpus }: Props) {
 
   return (
     <Box>
-      <CPUSelect cpus={cpus} onCpuSelected={setSelectedCpuIndex} />
+      <Box pb="3">
+        <CPUSelect cpus={cpus} onCpuSelected={setSelectedCpuIndex} />
+      </Box>
       <GaugeChart value={cpus[selectedCpuIndex].usage} />
     </Box>
   );
