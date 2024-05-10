@@ -2,6 +2,7 @@
 import { Card, Heading, Text } from "@radix-ui/themes";
 import useRealtimeMetricsOfServer from "../services/useRealtimeMetricsOfServer";
 import MemoryHistory from "./memory/MemoryHistory";
+import CPUHistory from "./cpus/CPUHistory";
 
 const HISTORY = 10;
 
@@ -19,7 +20,8 @@ function ServerCard({ serverName }: Props) {
       {data === undefined && !isLoading && <Text>No data available for {serverName}</Text>}
       {data !== undefined && (
         <>
-          <MemoryHistory historyDepth={HISTORY} serverData={data} />
+          {/*<MemoryHistory historyDepth={HISTORY} serverData={data} />*/}
+          {Array.isArray(data.cpu) && data.cpu.length > 0 && <CPUHistory cpus={data.cpu} />}
         </>
       )}
     </Card>
