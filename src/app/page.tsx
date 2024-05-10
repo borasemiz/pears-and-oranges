@@ -1,10 +1,9 @@
-import { Text, Button } from '@radix-ui/themes';
+import ServerCard from '@/servers/components/ServerCard';
 
 export default function Home() {
   return (
     <main>
-      <Text>Bora is</Text>
-      <Button>Awesome</Button>
+      <ServerCard serverName='server01' />
     </main>
   );
 }

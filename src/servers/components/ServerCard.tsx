@@ -10,12 +10,13 @@ interface Props {
 }
 
 function ServerCard({ serverName }: Props) {
-  const data = useRealtimeMetricsOfServer(serverName);
+  const { isLoading, data } = useRealtimeMetricsOfServer(serverName);
   
   return (
     <Card>
       <Heading as="h2">{serverName}</Heading>
-      {data === undefined && <Text>No data available for {serverName}</Text>}
+      {isLoading && <Text>Data is loading...</Text>}
+      {data === undefined && !isLoading && <Text>No data available for {serverName}</Text>}
       {data !== undefined && (
         <>
           <MemoryHistory historyDepth={HISTORY} serverData={data} />
