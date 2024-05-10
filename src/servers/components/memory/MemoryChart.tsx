@@ -32,9 +32,9 @@ function MemoryChart({ memoryHistory }: Props) {
     <Box>
       <Flex justify="between">
         <UnitSelection onUnitSelected={setUnit} />
-        {total.length > 0 ? (
+        {total.length > 0 && (
           <Text>Total Memory: {total[total.length-1]} GB</Text>
-        ) : null}
+        )}
       </Flex>
       <LineChart
         labels={memoryHistory.map((_, index) => `${index+1}`)}

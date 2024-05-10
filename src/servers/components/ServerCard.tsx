@@ -1,9 +1,7 @@
 'use client';
 import { Card, Heading, Text } from "@radix-ui/themes";
 import useRealtimeMetricsOfServer from "../services/useRealtimeMetricsOfServer";
-import MemoryChart from "./memory/MemoryChart";
-import { useEffect, useState } from "react";
-import { Memory } from "../types/Memory";
+import MemoryHistory from "./memory/MemoryHistory";
 
 const HISTORY = 10;
 
@@ -13,16 +11,6 @@ interface Props {
 
 function ServerCard({ serverName }: Props) {
   const data = useRealtimeMetricsOfServer(serverName);
-  const [memoryHistory, setMemoryHistory] = useState<Memory[]>([]);
-
-  useEffect(() => {
-    if (data === undefined) return;
-
-    setMemoryHistory(previousMemory => [
-      ...previousMemory,
-      ...(data.memory === undefined ? [] : [data.memory])
-    ].slice(-HISTORY));
-  }, [data])
   
   return (
     <Card>
@@ -30,7 +18,7 @@ function ServerCard({ serverName }: Props) {
       {data === undefined && <Text>No data available for {serverName}</Text>}
       {data !== undefined && (
         <>
-          {data.memory !== undefined ? <MemoryChart memoryHistory={memoryHistory} /> : null}
+          <MemoryHistory historyDepth={HISTORY} serverData={data} />
         </>
       )}
     </Card>
