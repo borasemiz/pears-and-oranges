@@ -2,35 +2,16 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+You need to use a NodeJS version that is compatiple with 20. If you use NVM, you can execute `nvm use` (or maybe first `nvm install`) command within the project root. NVM will install the correct version for you.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+After you have the correct NodeJS version, run `npm install` to install the dependencies. In order to run the project, you also need to create an `.env.local` file. You can copy the contents of the `.env` file to create one, then replace the `NEXT_PUBLIC_SERVER_METRICS_URL` variable with the one that I told you in the email. This is the WebSocket URL.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+After these, you are all set. Run `npm run dev` and head to the `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Notes
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+In the app, I tried to maintain a good amount of user experience and accessibility features with the limited information I had. I might have missed some of the requirements due to the fact that I thought they can be improved with better ones. Such as selecting a server from the list. It didn't feel right to implement this because a user can already see the servers and all their glory in detail. They can click one to go to their detail page.
 
-## Learn More
+Also, because it has been quite a while since I worked with charts, they might not be fully responsive. If you open the web page in a mobile phone for the first time, they look perfect. However, if you open the web page on desktop and resize the page, you will realize that they won't respond to changes. If I would be developing this for a real world app, I would have some more time therefore I wouldn't publish it like this. But due to the lack of time and good charting charting libraries that are out-of-the-box compatible with React, I wasn't able to implement the charts fully responsive.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+In all, I hope you like to read my code, and the solution that I made. I also hope it satisfies the most important pieces of your specifications.
