@@ -4,6 +4,7 @@ import useRealtimeMetricsOfServer from "@/servers/services/useRealtimeMetricsOfS
 import MemoryHistory from '@/servers/components/memory/MemoryHistory';
 import CPUHistory from '@/servers/components/cpus/CPUHistory';
 import { capitalCase } from 'case-anything';
+import BreadCrumb from '@/ui/BreadCrumb';
 
 interface Props {
   params: {
@@ -20,8 +21,25 @@ export default function ServerID({ params: { id: serverId } }: Props) {
 
   return data !== undefined ? (
     <>
+      <BreadCrumb
+        currentPageTitle={serverId}
+        locationHistory={[
+          {
+            link: '/',
+            title: 'All Servers'
+          }
+        ]}
+      />
+
       <Heading as="h1" mb="4">{capitalCase(serverId)}</Heading>
-      <Grid columns="2" gap="3">
+      
+      <Grid
+        columns={{
+          initial: '1',
+          sm: '2',
+        }}
+        gap="3"
+      >
         <Card>
           <Heading as="h2" mb="2">Memory View</Heading>
           <MemoryHistory serverData={data} />

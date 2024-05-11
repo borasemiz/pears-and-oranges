@@ -18,7 +18,7 @@ function MemoryHistory({ serverData }: Props) {
       ...previousMemory,
       serverData.memory,
     ].slice(-HISTORY_DEPTH));
-  }, [serverData, HISTORY_DEPTH]);
+  }, [serverData]);
 
   return <MemoryChart memoryHistory={memoryHistory} />;
 }
