@@ -7,7 +7,7 @@ import MemoryChart from "./MemoryChart";
 const HISTORY_DEPTH = 10;
 
 interface Props {
-  serverData: Partial<AllMetricResponse>;
+  serverData: AllMetricResponse;
 }
 
 function MemoryHistory({ serverData }: Props) {
@@ -16,13 +16,11 @@ function MemoryHistory({ serverData }: Props) {
   useEffect(() => {
     setMemoryHistory(previousMemory => [
       ...previousMemory,
-      ...(serverData.memory === undefined ? [] : [serverData.memory])
+      serverData.memory,
     ].slice(-HISTORY_DEPTH));
   }, [serverData, HISTORY_DEPTH]);
 
-  return (
-    serverData.memory !== undefined ? <MemoryChart memoryHistory={memoryHistory} /> : null
-  )
+  return <MemoryChart memoryHistory={memoryHistory} />;
 }
 
 export default MemoryHistory;
