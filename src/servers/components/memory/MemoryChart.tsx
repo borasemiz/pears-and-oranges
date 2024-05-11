@@ -30,7 +30,7 @@ function MemoryChart({ memoryHistory }: Props) {
 
   return (
     <Box>
-      <Flex justify="between">
+      <Flex justify="between" align="center">
         <UnitSelection onUnitSelected={setUnit} />
         {total.length > 0 && (
           <Text>Total Memory: {total[total.length-1]} GB</Text>

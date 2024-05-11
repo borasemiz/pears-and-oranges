@@ -1,5 +1,5 @@
 import ServerCard from '@/servers/components/ServerCard';
-import { Flex, Grid } from '@radix-ui/themes';
+import { Grid } from '@radix-ui/themes';
 
 export default function Home() {
   return (
